@@ -6,4 +6,5 @@ int		main(void) {
 
 	std::cout << "Host Name : " << generalInfo.getHostName() << std::endl;
 	std::cout << "Username : " << generalInfo.getUsername() << std::endl;
+	std::cout << "DateTime : " << generalInfo.getDateTime() << std::endl;
 }

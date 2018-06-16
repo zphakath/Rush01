@@ -16,6 +16,62 @@ General		& General::operator=(General const & rhs) {
 	return (*this);
 }
 
+std::string			General::_getMonth(int num) {
+	std::string temp;
+
+	switch(num) {
+		case 1:
+			temp = "JAN";
+			break ;
+		case 2:
+			temp = "FEB";
+			break ;
+		case 3:
+			temp = "MAR";
+			break ;
+		case 4:
+			temp = "APR";
+			break ;
+		case 5:
+			temp = "MAY";
+			break ;
+		case 6:
+			temp = "JUNE";
+			break ;
+		case 7:
+			temp = "JULY";
+			break ;
+		case 8:
+			temp = "AUG";
+			break ;
+		case 9:
+			temp = "SEPT";
+			break ;
+		case 10:
+			temp = "OCT";
+			break ;
+		case 11:
+			temp = "NOV";
+			break ;
+		case 12:
+			temp = "DEC";
+			break ;
+	}
+	return (temp);
+}
+
+std::string			General::_getTime() {
+	std::time_t 		t = std::time(0);
+	std::stringstream	year;
+
+	std::tm* now = std::localtime(&t);
+	year << (now->tm_year + 1900);
+	year << " " << _getMonth(now->tm_mon + 1);
+	year << " " << now->tm_mday;
+
+    return (year.str());
+}
+
 void				General::initHostName(void) {
 	char	temp[250];
 
@@ -23,6 +79,7 @@ void				General::initHostName(void) {
 	_username = temp;
 	gethostname(temp, 250);
 	_hostname = temp;
+	_dateTime = _getTime();
 }
 
 std::string			General::getHostName(void) const { return (this->_hostname); }

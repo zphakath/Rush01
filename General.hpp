@@ -3,6 +3,8 @@
 
 #include <unistd.h>
 #include <iostream>
+#include <ctime>
+#include <sstream>
 
 class	General {
 	private:
@@ -10,6 +12,8 @@ class	General {
 		std::string		_hostname;
 		std::string		_osInfoModule;
 		std::string		_dateTime;
+		std::string		_getTime();
+		std::string		_getMonth(int num);
 
 	public:
 		General(void);
