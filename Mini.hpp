@@ -26,6 +26,7 @@ class	Mini : public IMonitorDisplay {
 		CpuModule	_cpu;
 		Rammodule	_ram;
 		Network		_net;
+		void		initDisplay();
 };
 
 #endif
