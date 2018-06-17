@@ -10,15 +10,15 @@ std::string convert(unsigned int num) {
 }
 void    Ncurses::_displayInfo() {
     initscr();
-	//start_color();
-	//init_pair(1, COLOR_RED, COLOR_BLACK);
-	//attron(COLOR_PAIR(1));COLOR_PAIR(1));
-	//printw("Something");
-	//attroff(COLOR_PAIR(1));
+    char    c;
     getmaxyx(stdscr,_maxY, _maxX);
     WINDOW * win = newwin(_maxY, _maxX, 0, 0);
     refresh();
+    timeout(0);
     box(win, '*', '*');
+    while((c = getch()) != 'x')
+    {
+        usleep(3000);
     mvwprintw(win, 2, 2, "******** System Info ********");
     mvwprintw(win, 3, 5, "Welcome :" );
     mvwprintw(win, 3, 22, this->_gr.getUsername().c_str());
@@ -43,15 +43,22 @@ void    Ncurses::_displayInfo() {
     mvwprintw(win, 9, 62, "Ram Used:" );
     mvwprintw(win, 9, 77, convert(this->_ram.getUsed()).c_str());
     mvwprintw(win, 11, 62, "Ram Unused:" );
-    //mvwprintw(win, 11, 15, this->_gr.getUsername().c_str());
+    mvwprintw(win, 11, 77, convert(this->_ram.getUnused()).c_str());
     mvwprintw(win, 13, 62, "Ram Total :" );
-     mvwprintw(win, 2, 120, "*********** Network *********");
+    mvwprintw(win, 13, 77, convert(this->_ram.getTotal()).c_str());
+    mvwprintw(win, 2, 120, "*********** Network *********");
     mvwprintw(win, 3, 122, "Packets in :" );
+    mvwprintw(win, 3, 136, convert(this->_net.getIn()).c_str());
     mvwprintw(win, 5, 122, "Packets out:" );
+    mvwprintw(win, 5, 136, convert(this->_net.getOut()).c_str());
     wrefresh(win); 
     refresh();
+    this->_gr.refreshData();
+	this->_cpu.refreshData();
+	this->_ram.refreshData();
+	this->_net.refreshData();
+    }
     getch();
-	//getakech();
 	endwin();
 }
 
