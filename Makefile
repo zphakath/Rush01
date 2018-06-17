@@ -6,7 +6,7 @@
 #    By: akhanye <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/04 14:49:53 by akhanye           #+#    #+#              #
-#    Updated: 2018/06/16 14:52:56 by akhanye          ###   ########.fr        #
+#    Updated: 2018/06/17 11:53:37 by akhanye          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CLANG = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = main.cpp General.cpp
+SRC = main.cpp General.cpp CPUmodule.cpp IMonitorModule.cpp RAMmodule.cpp Network.cpp
 
 all: $(NAME)
 

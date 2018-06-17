@@ -68,8 +68,35 @@ std::string			General::_getTime() {
 	year << (now->tm_year + 1900);
 	year << " " << _getMonth(now->tm_mon + 1);
 	year << " " << now->tm_mday;
-
     return (year.str());
+}
+
+void				General::_getSysInfo(void) {
+	std::string			line;
+	std::size_t			index;
+	std::stringstream	temp;
+	std::ifstream pFile("sysinfo.info");
+
+	
+	system("sw_vers > sysinfo.info");
+	while (getline(pFile, line)) {
+		if ((index = line.find("ProductName:")) != std::string::npos) {
+			temp.str(std::string());
+			temp << line.substr(strlen("ProductName:"));
+			_productName = strTrim(temp.str());
+		}
+		else if ((index = line.find("ProductVersion:")) != std::string::npos) {
+			temp.str(std::string());
+			temp << line.substr(strlen("ProductVersion:"));
+			_productVersion = strTrim(temp.str());
+		}
+		else if ((index = line.find("BuildVersion:")) != std::string::npos) {
+			temp.str(std::string());
+			temp << line.substr(strlen("BuildVersion:"));
+			_buildVersion = strTrim(temp.str());
+		}
+	}
+	pFile.close();
 }
 
 void				General::initHostName(void) {
@@ -80,9 +107,14 @@ void				General::initHostName(void) {
 	gethostname(temp, 250);
 	_hostname = temp;
 	_dateTime = _getTime();
+	_getSysInfo();
 }
 
 std::string			General::getHostName(void) const { return (this->_hostname); }
 std::string			General::getOsInfoModule(void) const { return (this->_osInfoModule); }
 std::string			General::getDateTime(void) const { return (this->_dateTime); }
 std::string			General::getUsername(void) const { return (this->_username); }
+std::string			General::getProductVersion(void) const  { return (this->_productVersion); }
+std::string			General::getProductName(void) const { return (this->_productName); }
+std::string			General::getBuildVersion(void) const { return (this->_buildVersion); }
+//std::string			General::getCpuInfo(void) const { return (this->_cpuInfo); }
