@@ -3,8 +3,9 @@
 #define NCURSES_HPP
 
 #include <ncurses.h>
+#include "IMonitorDisplay.hpp"
 
-class	Ncurses {
+class	Ncurses : public IMonitorDisplay {
 	public:
 		Ncurses(void);
 		Ncurses(Ncurses const & rhs);
