@@ -49,5 +49,9 @@ void		Network::_getNetwork(void) {
 	pFile.close();
 }
 
+void				Network::refreshData(void) {
+	_getNetwork();
+}
+
 unsigned long		Network::getIn(void) const { return (this->_in); }
 unsigned long		Network::getOut(void) const { return (this->_out); }

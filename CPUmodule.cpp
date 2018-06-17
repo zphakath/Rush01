@@ -6,7 +6,7 @@
 /*   By: zphakath <zphakath@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:41:13 by zphakath          #+#    #+#             */
-/*   Updated: 2018/06/17 10:53:01 by akhanye          ###   ########.fr       */
+/*   Updated: 2018/06/17 13:29:59 by akhanye          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void				CpuModule::_initData(void) {
 	_readCpu();
 }
 
-void				CpuModule::updateInfo(void) {
+void				CpuModule::refreshData(void) {
 	_readCpu();
 }
 

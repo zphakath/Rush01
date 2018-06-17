@@ -1,11 +1,24 @@
 
+#include <ncurses.h>
 #include "General.hpp"
 #include "CPUmodule.hpp"
 #include "RAMmodule.hpp"
 #include "Network.hpp"
+#include "Ncurses.hpp"
 
 int		main(void) {
-	General		generalInfo;
+	initscr();
+	start_color();
+	init_pair(1, COLOR_RED, COLOR_BLACK);
+	attron(COLOR_PAIR(1));
+	printw("Something");
+	attroff(COLOR_PAIR(1));
+	refresh();
+	getch();
+	endwin();
+	return (0);
+
+	/*General		generalInfo;
 	CpuModule	cpuModule;
 	Rammodule	ramModule;
 	Network		netModule;
@@ -28,8 +41,17 @@ int		main(void) {
 	std::cout << "Packets out : " << netModule.getOut() << std::endl;
 
 
-	/*while (true) {
-		cpuModule.updateInfo();
+	while (true) {
+		generalInfo.refreshData();
+		cpuModule.refreshData();
+		ramModule.refreshData();
+		netModule.refreshData();
+		std::cout << "Packets in : " << netModule.getIn();
+		std::cout << " Packets out : " << netModule.getOut() << std::endl;
+		std::cout << "Ram Used : " << ramModule.getUsed();
+		std::cout << " Ram Unused : " << ramModule.getUnused();
+		std::cout << " Ram Total : " << ramModule.getTotal() << std::endl;
 	}*/
+
 	return (0);
 }

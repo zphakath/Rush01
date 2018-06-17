@@ -38,6 +38,7 @@ class	General : public Imonitormodule {
 		std::string		getCpuInfo(void) const;
 		std::string		getCpuSpeed(void) const;
 		void			initHostName(void);
+		void			refreshData(void);
 };
 
 #endif

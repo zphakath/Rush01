@@ -49,6 +49,10 @@ void		Rammodule::_getRam(void) {
 	_allocateRam(tempString);
 }
 
+void		Rammodule::refreshData(void) {
+	_getRam();
+}
+
 float		Rammodule::getUsed(void) const { return (this->_used); }
 float		Rammodule::getUnused(void) const { return (this->_unused); }
 float		Rammodule::getTotal(void) const { return (this->_total); }

@@ -39,7 +39,7 @@ class	CpuModule : public Imonitormodule{
 		float				getUser(void) const;
 		float				getSys(void) const;
 		float				getIdle(void) const;
-		void				updateInfo(void);
+		void				refreshData(void);
 };
 
 #endif

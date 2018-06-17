@@ -6,7 +6,7 @@
 /*   By: zphakath <zphakath@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:43:59 by zphakath          #+#    #+#             */
-/*   Updated: 2018/06/17 10:47:10 by akhanye          ###   ########.fr       */
+/*   Updated: 2018/06/17 13:25:39 by akhanye          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Rammodule : public Imonitormodule {
 		float		getUsed(void) const;
 		float		getUnused(void) const;
 		float		getTotal(void) const;
+		void		refreshData(void);
 };
 
 #endif

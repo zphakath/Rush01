@@ -6,7 +6,7 @@
 /*   By: zphakath <zphakath@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 11:43:59 by zphakath          #+#    #+#             */
-/*   Updated: 2018/06/17 12:09:26 by akhanye          ###   ########.fr       */
+/*   Updated: 2018/06/17 13:28:45 by akhanye          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Network : public Imonitormodule {
 		Network & operator=(Network const & rhs);
 		unsigned long		getIn(void) const;
 		unsigned long		getOut(void) const;
+		void				refreshData(void);
 };
 
 #endif

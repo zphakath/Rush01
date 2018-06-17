@@ -14,6 +14,15 @@
 class Imonitormodule {
 	protected:
 		std::string		strTrim(std::string str);
+		std::string		_title;
+
+	public:
+		Imonitormodule(void);
+		Imonitormodule(Imonitormodule const & rhs);
+		~Imonitormodule(void);
+		Imonitormodule & operator=(Imonitormodule const & rhs);
+		std::string		getTitle(void) const;
+		virtual void	refreshData(void) = 0;
 };
 
 #endif

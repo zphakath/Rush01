@@ -110,6 +110,10 @@ void				General::initHostName(void) {
 	_getSysInfo();
 }
 
+void				General::refreshData(void) {
+	_dateTime = _getTime();
+}
+
 std::string			General::getHostName(void) const { return (this->_hostname); }
 std::string			General::getOsInfoModule(void) const { return (this->_osInfoModule); }
 std::string			General::getDateTime(void) const { return (this->_dateTime); }
