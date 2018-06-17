@@ -11,6 +11,9 @@ class	Ncurses : public IMonitorDisplay {
 		Ncurses(Ncurses const & rhs);
 		~Ncurses(void);
 		Ncurses & operator=(Ncurses const & rhs);
+	private:
+		int _maxX;
+		int _maxY;
 };
 
 #endif
