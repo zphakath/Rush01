@@ -5,9 +5,23 @@
 #include "RAMmodule.hpp"
 #include "Network.hpp"
 #include "Ncurses.hpp"
+#include "IMonitorDisplay.hpp"
 
 int		main(void) {
-	initscr();
+	std::string	input;
+
+	do {
+		std::cout << "Please choose display module (nc / gr / x - exit) : " << std::endl;
+		std::getline(std::cin, input);
+		if (input.compare("nc") == 0) {
+			Ncurses ncurses;
+		}
+		else if (input.compare("gr") == 0) {
+
+		}
+	} while (input.compare("x") != 0);
+
+	/*initscr();
 	start_color();
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	attron(COLOR_PAIR(1));
@@ -16,7 +30,7 @@ int		main(void) {
 	refresh();
 	getch();
 	endwin();
-	return (0);
+	return (0);*/
 
 	/*General		generalInfo;
 	CpuModule	cpuModule;
