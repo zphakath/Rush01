@@ -2,6 +2,12 @@
 #include "Ncurses.hpp"
 #include <ncurses.h>
 
+std::string convert(unsigned int num) {
+    std::stringstream stream;
+    stream << num;
+    std::string temp = stream.str();
+    return (temp);
+}
 void    Ncurses::_displayInfo() {
     initscr();
 	//start_color();
@@ -35,7 +41,7 @@ void    Ncurses::_displayInfo() {
     mvwprintw(win, 7, 62, "CPU Speed:" );
     mvwprintw(win, 7, 77, this->_cpu.getCpuSpeed().c_str());
     mvwprintw(win, 9, 62, "Ram Used:" );
-    //mvwprintw(win, 9, 15, this->_ram.getUsed().c_str();
+    mvwprintw(win, 9, 77, convert(this->_ram.getUsed()).c_str());
     mvwprintw(win, 11, 62, "Ram Unused:" );
     //mvwprintw(win, 11, 15, this->_gr.getUsername().c_str());
     mvwprintw(win, 13, 62, "Ram Total :" );
