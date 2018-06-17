@@ -8,19 +8,26 @@
 #include "IMonitorDisplay.hpp"
 #include "mlx.h"
 #include "Mini.hpp"
+#include <list>
 
 
-static void	ncursesFunc(void) {
-	Ncurses ncurses;
+static void	ncursesFunc(General & gi, CpuModule & cp, Rammodule & rm, 
+					Network & nt) {
+	Ncurses ncurses(gi, cp, rm, nt);
 	getch();
 }
 
-static void	graphicsFunc(void) {
-	Mini graphics;
+static void	graphicsFunc(General & gi, CpuModule & cp, Rammodule & rm, 
+					Network & nt) {
+	Mini graphics(gi, cp, rm, nt);
 }
 
 int		main(void) {
 	std::string	input;
+	General		generalInfo;
+	CpuModule	cpuModule;
+	Rammodule	ramModule;
+	Network		netModule;
 
 	do {
 		std::cout << "Please choose display module (nc / gr / x - exit) : " << std::endl;
@@ -28,12 +35,12 @@ int		main(void) {
 		if (input.compare("nc") == 0) {
 			std::cout << "Eneterd NC" << std::endl;
 			//Ncurses ncurses;
-			ncursesFunc();
+			ncursesFunc(generalInfo, cpuModule, ramModule, netModule);
 		}
 		else if (input.compare("gr") == 0) {
 			std::cout << "Entered GR" << std::endl;
 			//Mini graphics;
-			graphicsFunc();
+			graphicsFunc(generalInfo, cpuModule, ramModule, netModule);
 		}
 	} while (input.compare("x") != 0);
 
