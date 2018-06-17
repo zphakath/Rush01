@@ -20,6 +20,7 @@ static void	ncursesFunc(General & gi, CpuModule & cp, Rammodule & rm,
 static void	graphicsFunc(General & gi, CpuModule & cp, Rammodule & rm, 
 					Network & nt) {
 	Mini graphics(gi, cp, rm, nt);
+	getch();
 }
 
 int		main(void) {

@@ -23,11 +23,9 @@ void		Network::_allocateRam(std::string info) {
 		temp = strTrim(info.substr(0, index));
 		_in = std::stoi(strTrim(temp));
 		info = strTrim(info.substr(index + 1));
-		std::cout << temp << std::endl;
 	}
 	if (info.size() > 0) {
 		_out = std::stoi(strTrim(info));
-		std::cout << info << std::endl;
 	}
 }
 
