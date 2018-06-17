@@ -6,6 +6,18 @@
 #include "Network.hpp"
 #include "Ncurses.hpp"
 #include "IMonitorDisplay.hpp"
+#include "mlx.h"
+#include "Mini.hpp"
+
+
+static void	ncursesFunc(void) {
+	Ncurses ncurses;
+	getch();
+}
+
+static void	graphicsFunc(void) {
+	Mini graphics;
+}
 
 int		main(void) {
 	std::string	input;
@@ -14,10 +26,14 @@ int		main(void) {
 		std::cout << "Please choose display module (nc / gr / x - exit) : " << std::endl;
 		std::getline(std::cin, input);
 		if (input.compare("nc") == 0) {
-			Ncurses ncurses;
+			std::cout << "Eneterd NC" << std::endl;
+			//Ncurses ncurses;
+			ncursesFunc();
 		}
 		else if (input.compare("gr") == 0) {
-
+			std::cout << "Entered GR" << std::endl;
+			//Mini graphics;
+			graphicsFunc();
 		}
 	} while (input.compare("x") != 0);
 
